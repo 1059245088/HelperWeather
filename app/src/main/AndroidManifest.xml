@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.njcc.trover.weather">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.MainActivity"
+            android:clearTaskOnLaunch="false"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ChooseCityActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.AlarmInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.CityManageActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.ForecastDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.SettingsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.AQIActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".activity.AboutInfoActivity"
+            android:screenOrientation="portrait"/>
+
+        <service android:name=".service.AutoUpdateService"/>
+        <service android:name=".service.DeskWidget41Service"/>
+        <service android:name=".service.NotificationService"/>
+
+        <receiver android:name=".receiver.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.WeatherWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_weather_41"/>
+        </receiver>
+
+        <receiver android:name=".receiver.WeatherWidget42">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_weather_42"/>
+        </receiver>
+    </application>
+</manifest>
