@@ -51,8 +51,9 @@
             android:screenOrientation="portrait"/>
 
         <service android:name=".service.AutoUpdateService"/>
-        <service android:name=".service.DeskWidget41Service"/>
         <service android:name=".service.NotificationService"/>
+        <service android:name=".service.DeskWidget41Service"/>
+        <service android:name=".service.DeskWidget42Service"/>
 
         <receiver android:name=".receiver.BootReceiver">
             <intent-filter>
