@@ -315,7 +315,7 @@ public class ChooseCityActivity extends BaseToolBarActivity {
 	}
 
 	/**
-	 * 保存将选择的area
+	 * 将选择的area保存
 	 *
 	 * @param list     当前保存listview的集合
 	 * @param position listview中点击的位置
